@@ -1,4 +1,7 @@
 import { useEffect, useReducer } from 'react';
+import { IntlProvider } from 'react-intl';
+import MensajesIngles from '../lang/en-US.json';
+import MensajesEspaniol from '../lang/es-ES.json';
 import Header from './Header';
 import Main from './Main';
 import Loader from './Loader';
@@ -14,6 +17,7 @@ import Timer from './Timer';
 const SECS_PER_QUESTION = 30;
 
 const initialState = {
+	data: {},
 	questions: [],
 	// 'loading', 'error', 'ready', 'active', 'finished'
 	status: 'loading',
@@ -29,7 +33,8 @@ function reducer(state, action) {
 		case 'dataReceived':
 			return {
 				...state,
-				questions: action.payload,
+				data: action.payload,
+				questions: action.payload.preguntas,
 				status: 'ready'
 			};
 		case 'dataFailed':
@@ -76,6 +81,14 @@ function reducer(state, action) {
 				secondsRemaining: state.secondsRemaining - 1,
 				status: state.secondsRemaining === 0 ? 'finished' : state.status
 			};
+		case 'changeLanguage':
+			return {
+				...state,
+				questions:
+					action.payload === 'es-ES'
+						? state.data.preguntas
+						: state.data.questions
+			};
 		default:
 			throw new Error('Action unknown');
 	}
@@ -96,9 +109,7 @@ export default function App() {
 		async function getQuestions() {
 			await fetch('https://my-json-server.typicode.com/LucasAgui/mockjson/db')
 				.then((res) => res.json())
-				.then((data) =>
-					dispatch({ type: 'dataReceived', payload: data.questions })
-				)
+				.then((data) => dispatch({ type: 'dataReceived', payload: data }))
 				.catch((err) => dispatch({ type: 'dataFailed', payload: err.message }));
 		}
 		getQuestions();
@@ -106,8 +117,7 @@ export default function App() {
 
 	return (
 		<div className="app">
-			<Header />
-
+			<Header dispatch={dispatch} />
 			<Main>
 				{status === 'loading' && <Loader />}
 				{status === 'error' && <Error />}

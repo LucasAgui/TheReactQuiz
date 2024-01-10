@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl';
+
 function NextButton({ dispatch, answer, index, numQuestions }) {
 	if (answer === null) return null;
 
@@ -6,7 +8,10 @@ function NextButton({ dispatch, answer, index, numQuestions }) {
 			<button
 				className="btn btn-ui"
 				onClick={() => dispatch({ type: 'nextQuestion' })}>
-				Next
+				<FormattedMessage
+					id="app.nextQuestionButton"
+					defaultMessage="Siguiente"
+				/>
 			</button>
 		);
 
@@ -15,7 +20,7 @@ function NextButton({ dispatch, answer, index, numQuestions }) {
 			<button
 				className="btn btn-ui"
 				onClick={() => dispatch({ type: 'finish' })}>
-				Finish
+				<FormattedMessage id="app.finishButton" defaultMessage="Finalizar" />
 			</button>
 		);
 }

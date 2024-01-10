@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl';
+
 function FinishScreen({ points, maxPossiblePoints, highscore, dispatch }) {
 	const percentaje = (points / maxPossiblePoints) * 100;
 
@@ -20,7 +22,7 @@ function FinishScreen({ points, maxPossiblePoints, highscore, dispatch }) {
 				className="btn btn-ui"
 				style={{ float: 'none', margin: '0 auto' }}
 				onClick={() => dispatch({ type: 'restart' })}>
-				Restart
+				<FormattedMessage id="app.resetButton" defaultMessage="Reiniciar" />
 			</button>
 		</>
 	);

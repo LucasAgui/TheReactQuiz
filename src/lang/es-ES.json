@@ -1,0 +1,10 @@
+{
+	"app.welcome": "Quiz de React",
+	"app.start": "Bienvenido al Quiz de React!",
+	"app.description": "preguntas para probar tu maestría con React",
+	"app.startButton": "Comenzar",
+	"app.progressQuestion": "Pregunta",
+	"app.nextQuestionButton": "Siguiente",
+	"app.finishButton": "Finalizar",
+	"app.resetButton": "Reiniciar"
+}
