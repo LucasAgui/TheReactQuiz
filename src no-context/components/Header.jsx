@@ -1,11 +1,9 @@
-import { FormattedMessage } from 'react-intl';
-import useQuizContext from '../hooks/useQuizContext';
 import styles from './Header.module.css';
 
 import useLangContext from '../hooks/useLangContext';
+import { FormattedMessage } from 'react-intl';
 
-function Header() {
-	const { dispatch } = useQuizContext();
+function Header({ dispatch }) {
 	const { establecerLenguage } = useLangContext();
 
 	return (

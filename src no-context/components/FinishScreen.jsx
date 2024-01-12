@@ -1,8 +1,6 @@
 import { FormattedMessage } from 'react-intl';
-import useQuizContext from '../hooks/useQuizContext';
 
-function FinishScreen() {
-	const { points, maxPossiblePoints, highscore, dispatch } = useQuizContext();
+function FinishScreen({ points, maxPossiblePoints, highscore, dispatch }) {
 	const percentaje = (points / maxPossiblePoints) * 100;
 
 	let emoji;
@@ -16,31 +14,10 @@ function FinishScreen() {
 	return (
 		<>
 			<p className="result">
-				<span>{emoji}</span>
-				<FormattedMessage
-					id="app.scored1"
-					defaultMessage="Tu puntiación es de un maximo posible de"
-				/>{' '}
-				<strong>{points}</strong>{' '}
-				<FormattedMessage
-					id="app.scored2"
-					defaultMessage="de un maximo posible de"
-				/>{' '}
-				<strong>{maxPossiblePoints}</strong> ({Math.ceil(percentaje)}%)
+				<span>{emoji}</span>You scored <strong>{points}</strong> out of{' '}
+				{maxPossiblePoints} ({Math.ceil(percentaje)}%)
 			</p>
-			<p className="highscore">
-				(
-				<FormattedMessage
-					id="app.points1"
-					defaultMessage="de un maximo posible de"
-				/>{' '}
-				{highscore}{' '}
-				<FormattedMessage
-					id="app.points2"
-					defaultMessage="de un maximo posible de"
-				/>
-				)
-			</p>
+			<p className="highscore">(Highscore: {highscore} points)</p>
 			<button
 				className="btn btn-ui"
 				style={{ float: 'none', margin: '0 auto' }}

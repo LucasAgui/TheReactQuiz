@@ -1,9 +1,6 @@
 import { FormattedMessage } from 'react-intl';
-import useQuizContext from '../hooks/useQuizContext';
 
-function Progress() {
-	const { index, numQuestions, points, maxPossiblePoints, answer } =
-		useQuizContext();
+function Progress({ index, numQuestions, points, maxPossiblePoints, answer }) {
 	return (
 		<header className="progress">
 			<progress max={numQuestions} value={index + Number(answer !== null)} />

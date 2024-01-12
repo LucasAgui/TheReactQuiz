@@ -6,9 +6,5 @@
 	"app.progressQuestion": "Question",
 	"app.nextQuestionButton": "Next",
 	"app.finishButton": "Finish",
-	"app.scored1": "You scored ",
-	"app.scored2": "out of",
-	"app.points1": "Highscore: ",
-	"app.points2": "points",
 	"app.resetButton": "Restart"
 }

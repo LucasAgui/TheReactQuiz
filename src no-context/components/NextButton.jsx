@@ -1,9 +1,6 @@
 import { FormattedMessage } from 'react-intl';
-import useQuizContext from '../hooks/useQuizContext';
 
-function NextButton() {
-	const { dispatch, answer, index, numQuestions } = useQuizContext();
-
+function NextButton({ dispatch, answer, index, numQuestions }) {
 	if (answer === null) return null;
 
 	if (index < numQuestions - 1)

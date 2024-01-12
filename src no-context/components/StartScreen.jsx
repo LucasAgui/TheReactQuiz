@@ -1,7 +1,6 @@
+import useLangContext from '../hooks/useLangContext';
 import { FormattedMessage } from 'react-intl';
-import useQuizContext from '../hooks/useQuizContext';
-function StartScreen() {
-	const { numQuestions, dispatch } = useQuizContext();
+function StartScreen({ numQuestions, dispatch }) {
 	return (
 		<div className="start">
 			<h2>

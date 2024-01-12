@@ -6,9 +6,5 @@
 	"app.progressQuestion": "Pregunta",
 	"app.nextQuestionButton": "Siguiente",
 	"app.finishButton": "Finalizar",
-	"app.scored1": "Tu puntiación es ",
-	"app.scored2": "de un maximo posible de",
-	"app.points1": "Record: ",
-	"app.points2": "puntos",
 	"app.resetButton": "Reiniciar"
 }
